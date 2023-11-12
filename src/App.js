@@ -1,4 +1,4 @@
-import SearchBar from "./components/SearchBar/SearchBar";
+// import SearchBar from "./components/SearchBar/SearchBar";
 import Users from "./components/Users/Users";
 import "./App.css";
 import axios from "axios";
@@ -22,7 +22,7 @@ function App() {
     axios
       .get(`${API_URL}/users`)
       .then((res) => {
-          setUsers(res.data);
+          setUsers(res.data.data);
           setLoading(false)
       })
       .catch((err) => {
@@ -46,7 +46,6 @@ function App() {
   return (
     <div className="App">
       <h1>Our Users</h1>
-      <SearchBar />
       {renderContent()}
       {/* <Users /> */}
     </div>
