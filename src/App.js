@@ -9,44 +9,37 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-      setError("")
-      setLoading(true)
-      
-  
+    setError("");
+    setLoading(true);
+
     axios
       .get(`${API_URL}/users`)
       .then((res) => {
-          setUsers(res.data.data);
-          setLoading(false)
+        setUsers(res.data.data);
+        setLoading(false);
       })
       .catch((err) => {
-        console.log(err.message)
-        setLoading(false)
-        setError(err.message)
+        console.log(err.message);
+        setLoading(false);
+        setError(err.message);
       });
   }, []);
 
   const renderContent = () => {
-    if(loading){
-      return <Loading />
-    } else if(error) {
-      return <Error error={error} />
-    }else{
-     return <Users users={users}/>
+    if (loading) {
+      return <Loading />;
+    } else if (error) {
+      return <Error error={error} />;
+    } else {
+      return <Users users={users} />;
     }
-  }
+  };
 
-
-  return (
-    <div className="App">
-      <h1>Our Users</h1>
-      {renderContent()}
-    </div>
-  );
+  return <div className="App">{renderContent()}</div>;
 }
 
 export default App;

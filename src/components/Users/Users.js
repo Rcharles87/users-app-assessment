@@ -58,10 +58,13 @@ const Users = ({ users }) => {
 
   return (
     <article className="Users">
+      <h1>Our Users</h1>
       <SearchBar
         users={users}
         searchInput={searchInput}
         setSearchInput={setSearchInput}
+        expanded={expanded}
+        setExpanded={setExpanded}
       />
       {renderContent()}
     </article>
