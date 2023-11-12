@@ -18,7 +18,6 @@ const Users = ({ users }) => {
   };
 
   let dataToDisplay = users;
-  console.log(dataToDisplay);
 
   if (searchInput) {
     dataToDisplay = users.filter((user) => {

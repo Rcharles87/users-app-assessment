@@ -1,4 +1,3 @@
-// import SearchBar from "./components/SearchBar/SearchBar";
 import Users from "./components/Users/Users";
 import "./App.css";
 import axios from "axios";
@@ -12,7 +11,6 @@ function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
-  // TODO: Fetch data here
 
   useEffect(() => {
       setError("")
@@ -47,7 +45,6 @@ function App() {
     <div className="App">
       <h1>Our Users</h1>
       {renderContent()}
-      {/* <Users /> */}
     </div>
   );
 }

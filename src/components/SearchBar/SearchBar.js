@@ -10,7 +10,6 @@ const SearchBar = ({searchInput, setSearchInput}) => {
     setSearchInput(e.target.value)
   }
 
-  console.log(searchInput)
 
   return (
     <input 
