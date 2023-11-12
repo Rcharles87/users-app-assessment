@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import './User.css';
 
-const User = ({ user }) => {
+const User = ({ user, expanded, onClick }) => {
   const { about, age, company, country, name, photo } = user;
 
+  // const handelButtonTextChange = (expanded) =>{
+  //   if(!expanded){
+  //     return <button></button>
+  //   }
+  // }
+
+console.log(`<user/> name = ${user.name} expanded=${expanded}`)
   return (
     <section className="User">
       <div className="User__avatar">
@@ -15,13 +23,15 @@ const User = ({ user }) => {
           <li>Country: {country}</li>
           <li>Company: {company}</li>
         </ul>
+        {expanded && (
         <div className="User__about">
           <h3>About {name.split(' ')[0]}:</h3>
           <p>{about}</p>
         </div>
+        )}
       </div>
       <div className="User__controls">
-        <button>click me</button>
+        <button onClick={onClick}>{expanded ? "Show Less" : "Show More"}</button>
       </div>
     </section>
   );
